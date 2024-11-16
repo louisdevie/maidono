@@ -1,0 +1,36 @@
+{
+    "folders": [
+        {
+            "name": "Project root",
+            "path": ".",
+            "folder_exclude_patterns": ["*"]
+        },
+        {
+            "name": "Core library",
+            "path": "core",
+            "folder_exclude_patterns": ["target"],
+            "file_exclude_patterns": ["Cargo.lock"]
+        },
+        {
+            "name": "CLI tool",
+            "path": "maidctl",
+            "folder_exclude_patterns": ["target"],
+            "file_exclude_patterns": ["Cargo.lock"]
+        },
+        {
+            "name": "Server",
+            "path": "maidono",
+            "folder_exclude_patterns": ["target"],
+            "file_exclude_patterns": ["Cargo.lock"]
+        }
+    ],
+    "settings": {
+        "LSP": {
+            "rust-analyzer": {
+                "settings": {
+                    "rust-analyzer.procMacro.enable": true,
+                }
+            }
+        }
+    }
+}

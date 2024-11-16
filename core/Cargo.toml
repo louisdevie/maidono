@@ -1,0 +1,12 @@
+[package]
+name = "maidono_core"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+serde = { version = "1.0.202", features = ["derive"] }
+serde_yaml = "0.9.34"
+
+[dev-dependencies]
+serde_test = "1.0.176"
+indoc = "2"
