@@ -9,6 +9,8 @@ pub enum HostRef {
     Custom(String),
 }
 
+pub const DEFAULT_HOST_REF: HostRef = HostRef::Any;
+
 impl<'de> Deserialize<'de> for HostRef {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where

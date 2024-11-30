@@ -137,12 +137,8 @@ pub fn show_action(
     printer
         .print_text("trigger:")
         .println_text(action.trigger())
-        .print_text("origin:");
-    if let Some(origin) = action.origin() {
-        printer.println_text(origin);
-    } else {
-        printer.println_text("any");
-    }
+        .print_text("origin:")
+        .println_text(action.origin());
     if let Some(secret) = action.secret() {
         printer
             .print_text("secret:")
@@ -154,7 +150,7 @@ pub fn show_action(
     if !action.after().is_empty() {
         printer.print_text("after:").println_list(action.after());
     }
-    if action.action().has_multiple_commmands() {
+    if action.action().has_multiple_commands() {
         printer
             .println_text("command:")
             .indent()

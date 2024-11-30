@@ -3,6 +3,8 @@ use clio::Input;
 
 #[derive(Parser, Debug)]
 #[command(name = "maidctl")]
+#[command(version = "0.1.0")]
+#[command(about = "The maidono webhook server CLI tool", long_about = None)]
 pub struct Cli {
     #[command(subcommand)]
     pub command: Commands,

@@ -36,7 +36,7 @@ impl Error {
         }
     }
 
-    pub fn display_very_compact<P: ErrorPrinter>(self, printer: &'_ mut P) {
+    pub fn display_very_compact<P: ErrorPrinter>(&self, printer: &'_ mut P) {
         match self {
             Error::StaticMessage(msg) => printer.print_error_inline(msg),
             Error::DynamicMessage(msg) => printer.print_error_inline(msg),
@@ -46,7 +46,7 @@ impl Error {
         };
     }
 
-    pub fn display_detailed<P: ErrorPrinter>(self, printer: &'_ mut P) {
+    pub fn display_detailed<P: ErrorPrinter>(&self, printer: &'_ mut P) {
         match self {
             Error::StaticMessage(msg) => {
                 printer.print_error(msg);
@@ -87,9 +87,9 @@ impl From<serde_yaml::Error> for Error {
     }
 }
 
-impl Debug for Error {
-    fn fmt(&self, _: &mut Formatter<'_>) -> std::result::Result<(), std::fmt::Error> {
-        todo!()
+impl From<&str> for Error {
+    fn from(value: &str) -> Self {
+        Self::DynamicMessage(value.to_owned())
     }
 }
 
@@ -101,4 +101,60 @@ pub trait ErrorPrinter {
     fn print_error<D: Display>(&mut self, text: D) -> &mut Self;
 
     fn print_error_inline<D: Display>(&mut self, text: D) -> &mut Self;
+}
+
+struct MinimalErrorMessageBuilder {
+    indent: usize,
+    new_line: bool,
+    string: String,
+}
+
+impl MinimalErrorMessageBuilder {
+    pub fn new() -> Self {
+        Self {
+            indent: 0,
+            new_line: true,
+            string: String::new(),
+        }
+    }
+
+    fn pad(&self) -> String {
+        if self.new_line {
+            "  ".repeat(self.indent)
+        } else {
+            String::new()
+        }
+    }
+}
+
+impl ErrorPrinter for MinimalErrorMessageBuilder {
+    fn indent(&mut self) -> &mut Self {
+        self.indent += 1;
+        self
+    }
+
+    fn unindent(&mut self) -> &mut Self {
+        self.indent -= 1;
+        self
+    }
+
+    fn print_error<D: Display>(&mut self, text: D) -> &mut Self {
+        eprintln!(" {}{}", self.pad(), text);
+        self.new_line = true;
+        self
+    }
+
+    fn print_error_inline<D: Display>(&mut self, text: D) -> &mut Self {
+        eprint!(" {}{}", self.pad(), text);
+        self.new_line = false;
+        self
+    }
+}
+
+impl Debug for Error {
+    fn fmt(&self, fmt: &mut Formatter<'_>) -> std::result::Result<(), std::fmt::Error> {
+        let mut memb = MinimalErrorMessageBuilder::new();
+        self.display_detailed(&mut memb);
+        fmt.write_str(&memb.string)
+    }
 }

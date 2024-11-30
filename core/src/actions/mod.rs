@@ -27,9 +27,7 @@ pub fn read_all_groups() -> Result<AllGroups> {
     let mut groups_map = HashMap::new();
 
     for (name, group_result) in try_read_all_groups()? {
-        if let Ok(group) = group_result {
-            groups_map.insert(name, group);
-        }
+        groups_map.insert(name, group_result?);
     }
 
     Ok(AllGroups { groups: groups_map })

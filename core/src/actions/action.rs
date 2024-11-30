@@ -1,5 +1,5 @@
 use super::commands::Commands;
-use super::host::HostRef;
+use super::host::{HostRef, DEFAULT_HOST_REF};
 use super::refs::{flatten_optional_refs, ActionRefs};
 use crate::utils::Result;
 use serde::Deserialize;
@@ -51,8 +51,8 @@ impl Action {
         &self.trigger
     }
 
-    pub fn origin(&self) -> Option<&HostRef> {
-        self.origin.as_ref()
+    pub fn origin(&self) -> &HostRef {
+        self.origin.as_ref().unwrap_or(&DEFAULT_HOST_REF)
     }
 
     pub fn secret(&self) -> Option<&str> {

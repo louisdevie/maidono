@@ -1,7 +1,7 @@
 use serde::Deserialize;
 use std::fmt::{Display, Formatter};
 
-#[derive(Deserialize, Debug, PartialEq)]
+#[derive(Deserialize, Debug, PartialEq, Clone)]
 #[serde(from = "String")]
 pub struct Commands {
     commands: Vec<String>,
@@ -12,7 +12,7 @@ impl Commands {
         Self { commands }
     }
 
-    pub fn has_multiple_commmands(&self) -> bool {
+    pub fn has_multiple_commands(&self) -> bool {
         self.commands.len() > 1
     }
 }
@@ -40,6 +40,15 @@ impl Display for Commands {
             writeln!(f, "{}", cmd)?;
         }
         Ok(())
+    }
+}
+
+impl<'a> IntoIterator for &'a Commands {
+    type Item = &'a String;
+    type IntoIter = std::slice::Iter<'a, String>;
+
+    fn into_iter(self) -> Self::IntoIter {
+        self.commands.iter()
     }
 }
 

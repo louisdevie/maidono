@@ -8,6 +8,9 @@
       <excludeFolder url="file://$MODULE_DIR$/core/target" />
       <excludeFolder url="file://$MODULE_DIR$/maidctl/target" />
       <excludeFolder url="file://$MODULE_DIR$/maidono/target" />
+      <excludeFolder url="file://$MODULE_DIR$/web/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/.archive" />
+      <excludeFolder url="file://$MODULE_DIR$/web/.idea" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

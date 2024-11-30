@@ -3,7 +3,7 @@ use crate::utils::error::Result;
 use crate::utils::split_in_two;
 use std::fmt::Display;
 
-#[derive(Debug, PartialEq, Clone)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub struct ActionPath {
     group_part: String,
     action_part: String,
@@ -43,6 +43,23 @@ impl ActionPath {
 impl Display for ActionPath {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(f, "{}/{}", self.group_part, self.action_part)
+    }
+}
+
+impl PartialOrd for ActionPath {
+    fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
+        Some(self.cmp(other))
+    }
+}
+
+impl Ord for ActionPath {
+    fn cmp(&self, other: &Self) -> std::cmp::Ordering {
+        let group_ordering = self.group_part.cmp(&other.group_part);
+        if group_ordering == std::cmp::Ordering::Equal {
+            self.action_part.cmp(&other.action_part)
+        } else {
+            group_ordering
+        }
     }
 }
 

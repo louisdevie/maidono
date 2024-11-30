@@ -44,6 +44,10 @@ impl Group {
         self.actions.iter()
     }
 
+    pub fn into_enumerated_actions(self) -> hash_map::IntoIter<String, Action> {
+        self.actions.into_iter()
+    }
+
     pub fn enumerate_action_names(&self) -> hash_map::Keys<'_, String, Action> {
         self.actions.keys()
     }

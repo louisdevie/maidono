@@ -137,16 +137,6 @@ impl ErrorPrinter for Printer {
         self
     }
 
-    fn print_error_inline<D: Display>(&mut self, text: D) -> &mut Self {
-        eprint!(
-            " {}{}",
-            self.pad(),
-            text.if_supports_color(Stream::Stderr, |x| x.bright_red())
-        );
-        self.new_line = false;
-        self
-    }
-
     fn print_error<D: Display>(&mut self, text: D) -> &mut Self {
         eprintln!(
             " {}{}",
@@ -154,6 +144,16 @@ impl ErrorPrinter for Printer {
             text.if_supports_color(Stream::Stderr, |x| x.bright_red())
         );
         self.new_line = true;
+        self
+    }
+
+    fn print_error_inline<D: Display>(&mut self, text: D) -> &mut Self {
+        eprint!(
+            " {}{}",
+            self.pad(),
+            text.if_supports_color(Stream::Stderr, |x| x.bright_red())
+        );
+        self.new_line = false;
         self
     }
 }

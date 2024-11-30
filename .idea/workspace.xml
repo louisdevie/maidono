@@ -9,46 +9,88 @@
     <cargoProject FILE="$PROJECT_DIR$/maidono/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9084785-2117-468a-a688-e250d0b813d0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/maidono.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/Cargo.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/actions/action.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/actions/commands.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/actions/group.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/actions/host.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/actions/mod.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/actions/refs.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/enabled_actions/mod.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/lib.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/utils/mod.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/utils/path.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maidctl/Cargo.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maidctl/src/actions/mod.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maidctl/src/actions/systemctl.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maidctl/src/actions/test.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maidctl/src/cli.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maidctl/src/main.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maidono/Cargo.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maidono/src/main.rs" afterDir="false" />
+    <list default="true" id="c9084785-2117-468a-a688-e250d0b813d0" name="Changes" comment="maidctl: edit config">
+      <change afterPath="$PROJECT_DIR$/maidono/src/execution/context.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maidono/src/execution/mod.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maidono/src/execution/runner.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maidono/src/fairings.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maidono/src/handler.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maidono/src/hosts.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maidono/src/logger.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maidono/src/payload/json.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maidono/src/payload/mod.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maidono/src/security/hmac.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maidono/src/security/mod.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maidono/src/state/actions.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maidono/src/state/mod.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maidono/src/version.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/install.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/pack.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/postcss.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/assets/app.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/assets/maidono-black.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/assets/maidono-white.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/tailwind.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/maidono.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/maidono.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/actions/action.rs" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/actions/action.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/actions/commands.rs" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/actions/commands.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/actions/group.rs" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/actions/group.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/actions/host.rs" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/actions/host.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/actions/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/actions/mod.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/utils/action_path.rs" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/utils/action_path.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/utils/error.rs" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/utils/error.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/utils/path.rs" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/utils/path.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maidctl/src/actions/display_config.rs" beforeDir="false" afterPath="$PROJECT_DIR$/maidctl/src/commands/display_config.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maidctl/src/actions/edit_config.rs" beforeDir="false" afterPath="$PROJECT_DIR$/maidctl/src/commands/edit_config.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maidctl/src/actions/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/maidctl/src/commands/mod.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maidctl/src/actions/reload.rs" beforeDir="false" afterPath="$PROJECT_DIR$/maidctl/src/commands/reload.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maidctl/src/actions/systemctl.rs" beforeDir="false" afterPath="$PROJECT_DIR$/maidctl/src/commands/systemctl.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maidctl/src/actions/test.rs" beforeDir="false" afterPath="$PROJECT_DIR$/maidctl/src/commands/test.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maidctl/src/cli.rs" beforeDir="false" afterPath="$PROJECT_DIR$/maidctl/src/cli.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maidctl/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/maidctl/src/main.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maidctl/src/printer.rs" beforeDir="false" afterPath="$PROJECT_DIR$/maidctl/src/printer.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maidono/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/maidono/Cargo.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maidono/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/maidono/src/main.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="RsBuildProfile:dev" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="RsBuildProfile:test" />
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Rust File" />
+      </list>
+    </option>
+  </component>
   <component name="FormatOnSaveOptions">
     <option name="myRunOnSave" value="true" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;louisdevie&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/louisdevie/maidono.git&quot;,
+    &quot;accountId&quot;: &quot;fe75b00b-62e1-4d16-9133-c238493cdc5c&quot;
+  }
+}</component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="6kkqejo1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -59,28 +101,45 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Cargo.Run.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.rust.reset.selective.auto.import": "true",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "org.rust.cargo.project.model.PROJECT_DISCOVERY": "true",
-    "org.rust.cargo.project.model.impl.CargoExternalSystemProjectAware.subscribe.first.balloon": "",
-    "org.rust.first.attach.projects": "true",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Cargo.All Tests.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Run.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.rust.reset.selective.auto.import&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;org.rust.cargo.project.model.PROJECT_DISCOVERY&quot;: &quot;true&quot;,
+    &quot;org.rust.cargo.project.model.impl.CargoExternalSystemProjectAware.subscribe.first.balloon&quot;: &quot;&quot;,
+    &quot;org.rust.first.attach.projects&quot;: &quot;true&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RsExternalLinterProjectSettings">
-    <option name="runOnTheFly" value="true" />
-  </component>
-  <component name="RunManager">
+}</component>
+  <component name="RunManager" selected="Cargo.All Tests">
+    <configuration name="All Tests" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="buildProfileId" value="test" />
+      <option name="command" value="test" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$/core" />
+      <envs />
+      <option name="emulateTerminal" value="true" />
+      <option name="channel" value="DEFAULT" />
+      <option name="requiredFeatures" value="true" />
+      <option name="allFeatures" value="false" />
+      <option name="withSudo" value="false" />
+      <option name="buildTarget" value="REMOTE" />
+      <option name="backtrace" value="SHORT" />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Run" type="CargoCommandRunConfiguration" factoryName="Cargo Command" nameIsGenerated="true">
       <option name="buildProfileId" value="dev" />
       <option name="command" value="run" />
@@ -99,6 +158,11 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Cargo.All Tests" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="RustProjectSettings">
     <option name="toolchainHomeDirectory" value="$USER_HOME$/.cargo/bin" />
@@ -115,12 +179,63 @@
       <option name="presentableId" value="Default" />
       <updated>1731755652475</updated>
       <workItem from="1731755654490" duration="4772000" />
-      <workItem from="1731766983264" duration="15697000" />
+      <workItem from="1731766983264" duration="18602000" />
+      <workItem from="1731848264256" duration="24747000" />
+      <workItem from="1732037216163" duration="1383000" />
+      <workItem from="1732040730540" duration="1558000" />
+      <workItem from="1732042302471" duration="21267000" />
+      <workItem from="1732136496959" duration="11854000" />
+      <workItem from="1732318414398" duration="815000" />
+      <workItem from="1732399913517" duration="2000" />
+      <workItem from="1732446990089" duration="6436000" />
+      <workItem from="1732561335373" duration="9998000" />
+      <workItem from="1732643746527" duration="21106000" />
+      <workItem from="1732733650802" duration="1158000" />
+      <workItem from="1732742020101" duration="2330000" />
+      <workItem from="1732744361200" duration="4385000" />
+      <workItem from="1732814598885" duration="10881000" />
+      <workItem from="1732909219212" duration="3975000" />
+      <workItem from="1732970527231" duration="12065000" />
     </task>
+    <task id="LOCAL-00001" summary="maidctl: edit config">
+      <option name="closed" value="true" />
+      <created>1731794730729</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1731794730729</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="maidctl: edit config" />
+    <option name="LAST_COMMIT_MESSAGE" value="maidctl: edit config" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/maidono/src/handler.rs</url>
+          <line>57</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

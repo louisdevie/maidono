@@ -3,11 +3,11 @@ use clap::Parser;
 use maidono_core::enabled_actions::ActionStatus;
 use maidono_core::utils::ErrorPrinter;
 
-use crate::actions::{FileTestPayload, NoTestPayload, StringTestPayload};
 use crate::cli::{Cli, Commands};
+use crate::commands::{FileTestPayload, NoTestPayload, StringTestPayload};
 
-mod actions;
 mod cli;
+mod commands;
 mod printer;
 
 fn main() {
@@ -19,30 +19,30 @@ fn main() {
             enabled,
             disabled,
             invalid,
-        } => actions::list(ActionStatus::from_flags(enabled, disabled), invalid),
+        } => commands::list(ActionStatus::from_flags(enabled, disabled), invalid),
 
-        Commands::Show { group } => actions::show(group),
-        Commands::Enable { actions } => actions::enable(actions),
-        Commands::Disable { actions } => actions::disable(actions),
+        Commands::Show { group } => commands::show(group),
+        Commands::Enable { actions } => commands::enable(actions),
+        Commands::Disable { actions } => commands::disable(actions),
 
         Commands::Test {
             name_or_url,
             payload: None,
             payload_file: None,
-        } => actions::test(name_or_url, NoTestPayload()),
+        } => commands::test(name_or_url, NoTestPayload()),
 
         Commands::Test {
             name_or_url,
             payload: Some(string_payload),
             payload_file: None,
-        } => actions::test(name_or_url, StringTestPayload(string_payload)),
+        } => commands::test(name_or_url, StringTestPayload(string_payload)),
 
         Commands::Test {
             name_or_url,
             payload: None,
             payload_file: Some(file_payload),
         } => {
-            actions::test(name_or_url, FileTestPayload(file_payload));
+            commands::test(name_or_url, FileTestPayload(file_payload));
         }
 
         Commands::Test {
@@ -53,10 +53,10 @@ fn main() {
             printer.print_error("both literal and file payload given");
         }
 
-        Commands::Status => actions::systemctl("status"),
-        Commands::Reload => actions::reload(),
-        Commands::Start => actions::systemctl("start"),
-        Commands::Stop => actions::systemctl("stop"),
-        Commands::Restart => actions::systemctl("restart"),
+        Commands::Status => commands::systemctl("status"),
+        Commands::Reload => commands::reload(),
+        Commands::Start => commands::systemctl("start"),
+        Commands::Stop => commands::systemctl("stop"),
+        Commands::Restart => commands::systemctl("restart"),
     }
 }
