@@ -6,8 +6,13 @@ Linux service to listen to GitHub webhooks
 
 ### On 64-bit Linux with systemd
 
-Download the latest binary release from [GitHub](https://github.com/louisdevie/maidono/releases), unpack it and run the
+```shell
+curl -s https://raw.githubusercontent.com/louisdevie/maidono/refs/heads/main/quick-install.sh | sudo bash
+```
+
+... or download the latest binary release from [GitHub](https://github.com/louisdevie/maidono/releases), unpack it and run the
 `install.sh` script as root.
+
 
 ### On other systems
 
